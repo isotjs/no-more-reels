@@ -90,4 +90,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
+## Note:
+
+Instagram is a registered trademark of Facebook, Inc. This extension is not affiliated with or endorsed by Facebook, Inc.
+
 *Take control of your Instagram experience. Your time and attention are valuable.*
