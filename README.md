@@ -1,3 +1,7 @@
+# IMPORTANT!
+
+> The extension is still under review stage of Firefox Add-ons.
+
 # 🚫 No More Reels!
 
 > Hide Instagram Reels & Explore for focused browsing.
