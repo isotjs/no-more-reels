@@ -1,7 +1,3 @@
-# IMPORTANT!
-
-> The extension is still under review stage of Firefox Add-ons.
-
 # 🚫 No More Reels!
 
 > Hide Instagram Reels & Explore for focused browsing.
@@ -19,9 +15,8 @@
 
 ## 🚀 Installation
 
-### Firefox Add-ons Store
-*Currently under review by Mozilla*
-
+[### Firefox Add-ons Store
+](https://addons.mozilla.org/en-GB/firefox/addon/no-more-reels/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 ## 🎮 How to Use
 
 1. **Install the extension** and visit [Instagram](https://instagram.com)
