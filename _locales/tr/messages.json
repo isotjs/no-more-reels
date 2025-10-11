@@ -1,0 +1,86 @@
+{
+  "extensionName": {
+    "message": "No More Reels!",
+    "description": "Uzantının adı."
+  },
+  "extensionDescription": {
+    "message": "Odaklanmış bir gezinme için Instagram Reels ve Keşfet'i gizleyen bir uzantı.",
+    "description": "Uzantının açıklaması."
+  },
+  "popupTitle": {
+    "message": "No More Reels!",
+    "description": "Açılır pencere başlığı."
+  },
+  "popupSubtitle": {
+    "message": "Odaklanmak için Instagram Reels ve Keşfet'i gizleyin.",
+    "description": "Açılır pencere alt başlığı."
+  },
+  "statusText": {
+    "message": "Instagram Reels ve Keşfet'i Gizle",
+    "description": "Açılır penceredeki ana durum metni."
+  },
+  "toggleOff": {
+    "message": "Kapalı",
+    "description": "Anahtarın 'Kapalı' konumu için etiket."
+  },
+  "toggleOn": {
+    "message": "Açık",
+    "description": "Anahtarın 'Açık' konumu için etiket."
+  },
+  "hiddenItemsReels": {
+    "message": "Reels Sekmesi",
+    "description": "Gizlenen Reels sekmesi için etiket."
+  },
+  "hiddenItemsExplore": {
+    "message": "Keşfet Sekmesi",
+    "description": "Gizlenen Keşfet sekmesi için etiket."
+  },
+  "hiddenItemsThreads": {
+    "message": "Threads Düğmesi",
+    "description": "Gizlenen Threads düğmesi için etiket."
+  },
+  "grayscaleMode": {
+    "message": "Gri Tonlama Modu",
+    "description": "Gri tonlama modu özelliği için etiket."
+  },
+  "threadsButtonMode": {
+    "message": "Threads Düğmesini Gizle",
+    "description": "Threads düğmesi gizleme özelliği için etiket."
+  },
+  "settingsUpdated": {
+    "message": "✅ Ayarlar güncellendi!",
+    "description": "Ayarları değiştirdikten sonra onay mesajı."
+  },
+  "blockedPageTitle": {
+    "message": "🚫 Bu Sayfa Engellendi",
+    "description": "Uzantı tarafından engellenen sayfadaki başlık."
+  },
+  "blockedPageSubtitle": {
+    "message": "Bu sayfa 'No More Reels!' uzantısı tarafından gizlenmiştir.",
+    "description": "Engellenen sayfadaki alt başlık."
+  },
+  "blockedPagePrompt": {
+    "message": "Anasayfaya dönerek dikkatinizi dağıtmadan devam edin.",
+    "description": "Engellenen sayfadaki yönlendirme."
+  },
+  "blockedPageButton": {
+    "message": "Beni kurtar!",
+    "description": "Engellenen sayfadaki düğme metni."
+  },
+"footerButtonHelp": {
+    "message": "Geribildirim",
+    "description": "Alt bilgideki 'Geribildirim' düğmesi metni."
+  },
+  "footerButtonGitHub": {
+    "message": "GitHub",
+    "description": "Alt bilgideki 'GitHub' düğmesi metni."
+  },
+  "debugEnabled": {
+    "message": "⚙️ Geliştirici modu aktif!",
+    "description": "Debug modu açıldığında çıkan onay mesajı."
+  },
+  "debugDisabled": {
+    "message": "⚙️ Geliştirici modu kapalı.",
+    "description": "Debug modu kapatıldığında çıkan mesaj."
+  }
+}

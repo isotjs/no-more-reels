@@ -1,0 +1,5 @@
+## Ignore agent and memory artifacts (In case we need to use them later)
+AGENTS.md
+memory-bank/
+memory-bank/*
+memory-bank/**

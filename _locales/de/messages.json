@@ -1,0 +1,86 @@
+{
+  "extensionName": {
+    "message": "No More Reels!",
+    "description": "The name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Eine Erweiterung, um Instagram Reels und Explore für ein fokussiertes Surfen auszublenden.",
+    "description": "The description of the extension."
+  },
+  "popupTitle": {
+    "message": "No More Reels!",
+    "description": "Title in the popup header."
+  },
+  "popupSubtitle": {
+    "message": "Instagram Reels & Explore für fokussiertes Surfen ausblenden.",
+    "description": "Subtitle in the popup header."
+  },
+  "statusText": {
+    "message": "Instagram Reels & Explore ausblenden",
+    "description": "Main status text in the popup."
+  },
+  "toggleOff": {
+    "message": "Aus",
+    "description": "Label for the 'Off' position of a toggle."
+  },
+  "toggleOn": {
+    "message": "An",
+    "description": "Label for the 'On' position of a toggle."
+  },
+  "hiddenItemsReels": {
+    "message": "Reels-Tab",
+    "description": "Tag for hidden Reels tab."
+  },
+  "hiddenItemsExplore": {
+    "message": "Entdecken-Tab",
+    "description": "Tag for hidden Explore tab."
+  },
+  "hiddenItemsThreads": {
+    "message": "Threads-Button",
+    "description": "Tag for hidden Threads button."
+  },
+  "grayscaleMode": {
+    "message": "Graustufenmodus",
+    "description": "Label for the grayscale mode feature."
+  },
+  "threadsButtonMode": {
+    "message": "Threads-Button ausblenden",
+    "description": "Label for the threads button hiding feature."
+  },
+  "settingsUpdated": {
+    "message": "✅ Einstellungen aktualisiert!",
+    "description": "Confirmation message after changing settings."
+  },
+  "blockedPageTitle": {
+    "message": "🚫 Diese Seite ist blockiert",
+    "description": "Title on the page blocked by the extension."
+  },
+  "blockedPageSubtitle": {
+    "message": "Diese Seite wurde von der Erweiterung 'No More Reels!' ausgeblendet.",
+    "description": "Subtitle on the blocked page."
+  },
+  "blockedPagePrompt": {
+    "message": "Kehren Sie zur ablenkungsfreien Startseite zurück.",
+    "description": "Prompt on the blocked page."
+  },
+  "blockedPageButton": {
+    "message": "Rette mich!",
+    "description": "Button text on the blocked page."
+  },
+  "footerButtonHelp": {
+    "message": "Feedback",
+    "description": "Text for the 'Feedback' button in the footer."
+  },
+  "footerButtonGitHub": {
+    "message": "GitHub",
+    "description": "Text for the 'GitHub' button in the footer."
+  },
+  "debugEnabled": {
+    "message": "⚙️ Entwicklermodus aktiviert!",
+    "description": "Confirmation message after enabling debug mode."
+  },
+  "debugDisabled": {
+    "message": "⚙️ Entwicklermodus deaktiviert.",
+    "description": "Confirmation message after disabling debug mode."
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "extensionName": {
+    "message": "No More Reels!",
+    "description": "The name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Расширение для скрытия Instagram Reels и вкладки 'Интересное' для сфокусированного просмотра.",
+    "description": "The description of the extension."
+  },
+  "popupTitle": {
+    "message": "No More Reels!",
+    "description": "Title in the popup header."
+  },
+  "popupSubtitle": {
+    "message": "Скрыть Instagram Reels и 'Интересное' для сфокусированного просмотра.",
+    "description": "Subtitle in the popup header."
+  },
+  "statusText": {
+    "message": "Скрыть Instagram Reels и 'Интересное'",
+    "description": "Main status text in the popup."
+  },
+  "toggleOff": {
+    "message": "Выкл",
+    "description": "Label for the 'Off' position of a toggle."
+  },
+  "toggleOn": {
+    "message": "Вкл",
+    "description": "Label for the 'On' position of a toggle."
+  },
+  "hiddenItemsReels": {
+    "message": "Вкладка Reels",
+    "description": "Tag for hidden Reels tab."
+  },
+  "hiddenItemsExplore": {
+    "message": "Вкладка 'Интересное'",
+    "description": "Tag for hidden Explore tab."
+  },
+  "hiddenItemsThreads": {
+    "message": "Кнопка Threads",
+    "description": "Tag for hidden Threads button."
+  },
+  "grayscaleMode": {
+    "message": "Оттенки серого",
+    "description": "Label for the grayscale mode feature."
+  },
+  "threadsButtonMode": {
+    "message": "Скрыть кнопку Threads",
+    "description": "Label for the threads button hiding feature."
+  },
+  "settingsUpdated": {
+    "message": "✅ Настройки обновлены!",
+    "description": "Confirmation message after changing settings."
+  },
+  "blockedPageTitle": {
+    "message": "🚫 Эта страница заблокирована",
+    "description": "Title on the page blocked by the extension."
+  },
+  "blockedPageSubtitle": {
+    "message": "Эта страница была скрыта расширением 'No More Reels!'.",
+    "description": "Subtitle on the blocked page."
+  },
+  "blockedPagePrompt": {
+    "message": "Вернитесь на главную страницу для просмотра без отвлекающих факторов.",
+    "description": "Prompt on the blocked page."
+  },
+  "blockedPageButton": {
+    "message": "Спасите меня!",
+    "description": "Button text on the blocked page."
+  },
+  "footerButtonHelp": {
+    "message": "Обратная связь",
+    "description": "Text for the 'Feedback' button in the footer."
+  },
+  "footerButtonGitHub": {
+    "message": "GitHub",
+    "description": "Text for the 'GitHub' button in the footer."
+  },
+  "debugEnabled": {
+    "message": "⚙️ Режим разработчика включен!",
+    "description": "Confirmation message after enabling debug mode."
+  },
+  "debugDisabled": {
+    "message": "⚙️ Режим разработчика отключен.",
+    "description": "Confirmation message after disabling debug mode."
+  }
+}

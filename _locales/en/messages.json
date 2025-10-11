@@ -1,0 +1,86 @@
+{
+  "extensionName": {
+    "message": "No More Reels!",
+    "description": "The name of the extension."
+  },
+  "extensionDescription": {
+    "message": "An extension to hide Instagram Reels and Explore for focused Browse.",
+    "description": "The description of the extension."
+  },
+  "popupTitle": {
+    "message": "No More Reels!",
+    "description": "Title in the popup header."
+  },
+  "popupSubtitle": {
+    "message": "Hide Instagram Reels & Explore for focused Browse.",
+    "description": "Subtitle in the popup header."
+  },
+  "statusText": {
+    "message": "Hide Instagram Reels & Explore",
+    "description": "Main status text in the popup."
+  },
+  "toggleOff": {
+    "message": "Off",
+    "description": "Label for the 'Off' position of a toggle."
+  },
+  "toggleOn": {
+    "message": "On",
+    "description": "Label for the 'On' position of a toggle."
+  },
+  "hiddenItemsReels": {
+    "message": "Reels Tab",
+    "description": "Tag for hidden Reels tab."
+  },
+  "hiddenItemsExplore": {
+    "message": "Explore Tab",
+    "description": "Tag for hidden Explore tab."
+  },
+  "hiddenItemsThreads": {
+    "message": "Threads Button",
+    "description": "Tag for hidden Threads button."
+  },
+  "grayscaleMode": {
+    "message": "Grayscale Mode",
+    "description": "Label for the grayscale mode feature."
+  },
+  "threadsButtonMode": {
+    "message": "Hide Threads Button",
+    "description": "Label for the threads button hiding feature."
+  },
+  "settingsUpdated": {
+    "message": "✅ Settings updated!",
+    "description": "Confirmation message after changing settings."
+  },
+  "blockedPageTitle": {
+    "message": "🚫 This Page is Blocked",
+    "description": "Title on the page blocked by the extension."
+  },
+  "blockedPageSubtitle": {
+    "message": "This page has been hidden by the 'No More Reels!' extension.",
+    "description": "Subtitle on the blocked page."
+  },
+  "blockedPagePrompt": {
+    "message": "Get back to distraction-free Browse by returning to the homepage.",
+    "description": "Prompt on the blocked page."
+  },
+  "blockedPageButton": {
+    "message": "Save me!",
+    "description": "Button text on the blocked page."
+  },
+  "footerButtonHelp": {
+    "message": "Feedback",
+    "description": "Text for the 'Feedback' button in the footer."
+  },
+  "footerButtonGitHub": {
+    "message": "GitHub",
+    "description": "Text for the 'GitHub' button in the footer."
+  },
+  "debugEnabled": {
+    "message": "⚙️ Debug mode enabled!",
+    "description": "Confirmation message after enabling debug mode."
+  },
+  "debugDisabled": {
+    "message": "Debug mode disabled.",
+    "description": "Confirmation message after disabling debug mode."
+  }
+}

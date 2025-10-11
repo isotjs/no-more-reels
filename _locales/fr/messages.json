@@ -1,0 +1,86 @@
+{
+  "extensionName": {
+    "message": "No More Reels!",
+    "description": "The name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Une extension pour masquer les Reels et l'onglet Explorer d'Instagram pour une navigation ciblée.",
+    "description": "The description of the extension."
+  },
+  "popupTitle": {
+    "message": "No More Reels!",
+    "description": "Title in the popup header."
+  },
+  "popupSubtitle": {
+    "message": "Masquer les Reels et l'onglet Explorer pour une navigation ciblée.",
+    "description": "Subtitle in the popup header."
+  },
+  "statusText": {
+    "message": "Masquer les Reels et l'onglet Explorer d'Instagram",
+    "description": "Main status text in the popup."
+  },
+  "toggleOff": {
+    "message": "Désactivé",
+    "description": "Label for the 'Off' position of a toggle."
+  },
+  "toggleOn": {
+    "message": "Activé",
+    "description": "Label for the 'On' position of a toggle."
+  },
+  "hiddenItemsReels": {
+    "message": "Onglet Reels",
+    "description": "Tag for hidden Reels tab."
+  },
+  "hiddenItemsExplore": {
+    "message": "Onglet Explorer",
+    "description": "Tag for hidden Explore tab."
+  },
+  "hiddenItemsThreads": {
+    "message": "Bouton Threads",
+    "description": "Tag for hidden Threads button."
+  },
+  "grayscaleMode": {
+    "message": "Mode Niveaux de gris",
+    "description": "Label for the grayscale mode feature."
+  },
+  "threadsButtonMode": {
+    "message": "Masquer le bouton Threads",
+    "description": "Label for the threads button hiding feature."
+  },
+  "settingsUpdated": {
+    "message": "✅ Paramètres mis à jour !",
+    "description": "Confirmation message after changing settings."
+  },
+  "blockedPageTitle": {
+    "message": "🚫 Cette page est bloquée",
+    "description": "Title on the page blocked by the extension."
+  },
+  "blockedPageSubtitle": {
+    "message": "Cette page a été masquée par l'extension 'No More Reels!'.",
+    "description": "Subtitle on the blocked page."
+  },
+  "blockedPagePrompt": {
+    "message": "Retournez à la page d'accueil pour une navigation sans distraction.",
+    "description": "Prompt on the blocked page."
+  },
+  "blockedPageButton": {
+    "message": "Sauvez-moi !",
+    "description": "Button text on the blocked page."
+  },
+  "footerButtonHelp": {
+    "message": "Commentaires",
+    "description": "Text for the 'Feedback' button in the footer."
+  },
+  "footerButtonGitHub": {
+    "message": "GitHub",
+    "description": "Text for the 'GitHub' button in the footer."
+  },
+  "debugEnabled": {
+    "message": "⚙️ Mode développeur activé !",
+    "description": "Confirmation message after enabling debug mode."
+  },
+  "debugDisabled": {
+    "message": "⚙️ Mode développeur désactivé.",
+    "description": "Confirmation message after disabling debug mode."
+  }
+}

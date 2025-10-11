@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extensionName__",
+  "version": "3.1",
+  "description": "__MSG_extensionDescription__",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{0a8749fa-2007-435e-bc3a-6dd582ca56b0}"
+    }
+  },
+  "homepage_url": "https://github.com/isotjs/no-more-reels",
+  "default_locale": "en",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.instagram.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.instagram.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "__MSG_extensionName__",
+    "default_icon": {
+      "48": "Assets/icon48.png",
+      "96": "Assets/icon96.png"
+    }
+  },
+  "icons": {
+    "48": "Assets/icon48.png",
+    "96": "Assets/icon96.png"
+  },
+  "options_ui": {
+    "page": "popup.html",
+    "open_in_tab": false
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "Assets/icon48.png",
+        "Assets/icon96.png"
+      ],
+      "matches": [
+        "*://*.instagram.com/*"
+      ]
+    }
+  ]
+}
