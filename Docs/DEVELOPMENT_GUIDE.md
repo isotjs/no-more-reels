@@ -1,419 +1,149 @@
 # Development Guide
 
-This guide provides detailed information for developers who want to contribute to or modify the No More Reels Firefox extension.
+This guide describes how to run, debug, and modify the No More Reels browser extension in this repository.
 
-## 🚀 Getting Started
+## Scope
 
-### Prerequisites
-- Firefox browser (latest version recommended)
-- Basic knowledge of JavaScript, HTML, and CSS
-- Understanding of browser extension APIs
-- Git for version control
+The project is a Firefox-first WebExtension that targets Instagram pages and hides distraction-oriented UI sections (Reels, Explore, optional Threads) while preserving normal browsing.
 
-### Development Environment Setup
+## Requirements
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/isotjs/no-more-reels.git
-   cd no-more-reels
-   ```
+- Firefox (latest stable recommended)
+- Git
+- Basic JavaScript, HTML, and CSS knowledge
+- Familiarity with WebExtensions APIs (`storage`, `tabs`, `runtime`)
 
-2. **Load Extension in Firefox**
-   - Open Firefox and navigate to `about:debugging`
-   - Click "This Firefox" tab
-   - Click "Load Temporary Add-on"
-   - Select the `manifest.json` file from the project directory
+## Local Setup
 
-3. **Enable Debug Mode**
-   - **Method 1**: Use the debug toggle in the popup interface (recommended)
-   - **Method 2**: Set `DEBUG = true` in the following files:
-     - `background.js` (line 25)
-     - `content.js` (line 35)
-     - `popup.js` (line 25)
+1. Clone the repository:
 
-## 📁 Project Architecture
-
-### File Structure
-```
-no-more-reels/
-├── manifest.json              # Extension configuration
-├── background.js              # Service worker (background script)
-├── content.js                 # Content script for Instagram pages
-├── popup.html                 # Popup interface HTML
-├── popup.js                   # Popup interface logic
-├── Assets/icon48.png                 # Extension icon (48x48)
-├── Assets/icon96.png                 # Extension icon (96x96)
-├── _locales/                  # Internationalization files
-│   ├── en/messages.json       # English messages
-│   ├── de/messages.json       # German messages
-│   ├── fr/messages.json       # French messages
-│   ├── ru/messages.json       # Russian messages
-│   └── tr/messages.json       # Turkish messages
-├── README.md                  # Project documentation
-├── MANIFEST_DOCUMENTATION.md  # Manifest file documentation
-└── DEVELOPMENT_GUIDE.md       # This file
+```bash
+git clone https://github.com/isotjs/no-more-reels.git
+cd no-more-reels
 ```
 
-### Component Overview
+2. Load extension in Firefox:
+   - Open `about:debugging`
+   - Select **This Firefox**
+   - Click **Load Temporary Add-on**
+   - Choose `manifest.json`
 
-#### Background Script (`background.js`)
-- **Purpose**: Manages extension state and coordinates between components
-- **Key Responsibilities**:
-  - State persistence and management
-  - Communication hub between popup and content scripts
-  - Tab event handling
-  - Storage operations with fallback mechanisms
-  - **NEW**: Threads button state management
-  - **NEW**: Debug mode state synchronization
-- **Key Classes**: `BackgroundManager`
+3. Open Instagram in a tab and verify the popup is functional.
 
-#### Content Script (`content.js`)
-- **Purpose**: Runs on Instagram pages to hide content
-- **Key Responsibilities**:
-  - DOM manipulation to hide reels and explore content
-  - Real-time content blocking with MutationObserver
-  - Page blocking for specific URLs
-  - Grayscale mode application
-  - **NEW**: Threads button hiding functionality
-  - **NEW**: Enhanced debug logging system
-  - **NEW**: Improved selector targeting
-- **Key Classes**: `NoMoreReelsExtension`
+## Runtime Architecture
 
-#### Popup Interface (`popup.html` + `popup.js`)
-- **Purpose**: User interface for extension settings
-- **Key Responsibilities**:
-  - User interaction handling
-  - UI state management
-  - Internationalization support
-  - Communication with background script
-  - **NEW**: Threads button toggle interface
-  - **NEW**: Debug mode toggle
-  - **NEW**: Interactive hidden item tags
-  - **NEW**: Enhanced mobile-responsive design
-- **Key Classes**: `PopupState`
+### `background.js`
 
-## 🔧 Development Workflow
+Background coordinator responsible for:
 
-### Making Changes
+- Loading and saving extension state
+- Sync/local storage fallback
+- Handling `runtime.onMessage` actions:
+  - `getState`
+  - `setState`
+  - `setDebugMode`
+- Broadcasting state to Instagram tabs
 
-1. **Create a Feature Branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+### `content.js`
 
-2. **Make Your Changes**
-   - Edit the relevant files
-   - Follow the coding standards below
-   - Add appropriate documentation
-   - **NEW**: Test debug mode functionality
-   - **NEW**: Verify threads button hiding works correctly
+Instagram page controller responsible for:
 
-3. **Test Your Changes**
-   - Reload the extension in `about:debugging`
-   - Test on different Instagram page types
-   - Verify functionality in different browsers
-   - Check for console errors
-   - **NEW**: Test debug mode toggle
-   - **NEW**: Test threads button hiding
-   - **NEW**: Test interactive tag functionality
+- Hiding Reels/Explore/Threads elements with selectors
+- Blocking direct `/reels/` and `/explore/` page routes
+- Applying grayscale mode
+- Reacting to state updates from background/popup
+- Re-running checks on DOM mutations and URL changes
 
-4. **Debug Issues**
-   - Use browser developer tools
-   - Check console logs (enable DEBUG mode via popup)
-   - Monitor network requests and storage
-   - **NEW**: Use debug mode for enhanced logging
-   - **NEW**: Check localStorage for debug state
+### `popup.html` + `popup.js`
 
-5. **Submit Changes**
-   ```bash
-   git add .
-   git commit -m "feat: add your feature description"
-   git push origin feature/your-feature-name
-   ```
+User control panel responsible for:
 
-### Testing Checklist
+- Main enable/disable switch
+- Reels/Explore tag toggles
+- Grayscale and Threads toggles
+- Debug toggle
+- Localized UI text via `_locales/*/messages.json`
 
-- [ ] Extension loads without errors
-- [ ] Popup interface works correctly
-- [ ] Content hiding works on Instagram pages
-- [ ] Settings persist across browser sessions
-- [ ] Internationalization works in different languages
-- [ ] No console errors or warnings
-- [ ] Cross-browser compatibility (Firefox/Chrome)
-- [ ] **NEW**: Debug mode toggle works correctly
-- [ ] **NEW**: Threads button hiding functions properly
-- [ ] **NEW**: Interactive tags respond to clicks
-- [ ] **NEW**: Mobile-responsive design works on different screen sizes
+## State Model
 
-## 📝 Coding Standards
+The extension state is shared across popup/background/content:
 
-### JavaScript
-
-#### JSDoc Documentation
-All functions and classes must have JSDoc comments:
-
-```javascript
-/**
- * Brief description of the function
- * 
- * @param {string} param1 - Description of parameter
- * @param {number} [param2] - Optional parameter
- * @returns {Promise<boolean>} Description of return value
- * @throws {Error} Description of when error is thrown
- */
-async function exampleFunction(param1, param2 = 0) {
-    // Implementation
-}
-```
-
-#### Class Documentation
-```javascript
-/**
- * Class description
- * 
- * Handles specific functionality including:
- * - Feature 1
- * - Feature 2
- * - Feature 3
- */
-class ExampleClass {
-    /**
-     * Creates a new ExampleClass instance
-     * @param {Object} config - Configuration object
-     */
-    constructor(config) {
-        /** Configuration object */
-        this.config = config;
-    }
-}
-```
-
-#### Error Handling
-Always include proper error handling:
-
-```javascript
-try {
-    const result = await someAsyncOperation();
-    return result;
-} catch (error) {
-    logError('Operation failed:', error);
-    // Provide fallback or re-throw as appropriate
-    throw new Error('User-friendly error message');
-}
-```
-
-#### Debug Mode Integration
-When adding new functionality, integrate with the debug system:
-
-```javascript
-/**
- * Example function with debug integration
- * @param {string} message - Message to log
- */
-function exampleWithDebug(message) {
-    // Always log errors regardless of debug mode
-    if (error) {
-        logError('Error occurred:', error);
-        return;
-    }
-    
-    // Only log debug info when debug mode is enabled
-    log('Debug info:', message);
-    
-    // Implementation
-}
-```
-
-### HTML/CSS
-
-#### Semantic HTML
-Use semantic HTML elements and proper accessibility:
-
-```html
-<!-- Good -->
-<button type="button" aria-label="Toggle extension">
-    <span class="toggle-label">Enable</span>
-</button>
-
-<!-- Avoid -->
-<div class="button" onclick="toggle()">Enable</div>
-```
-
-#### CSS Organization
-- Use consistent naming conventions (BEM or similar)
-- Group related styles together
-- Include comments for complex selectors
-- Use CSS custom properties for theming
-
-### Internationalization
-
-#### Message Keys
-Use descriptive, hierarchical message keys:
-
-```json
+```js
 {
-  "popupTitle": {
-    "message": "No More Reels!",
-    "description": "Title in the popup header"
-  },
-  "settingsUpdated": {
-    "message": "✅ Settings updated!",
-    "description": "Confirmation message after changing settings"
-  }
+  mainEnabled: true,
+  grayscaleEnabled: false,
+  threadsHidden: false,
+  reelsHidden: true,
+  exploreHidden: true,
+  debugEnabled: false
 }
 ```
 
-#### Dynamic Content
-Use placeholders for dynamic content:
+Storage keys used:
 
-```javascript
-const message = browserAPI.i18n.getMessage("welcomeMessage", [username]);
-```
+- `reelsExploreHiderEnabled`
+- `grayscaleEnabled`
+- `threadsButtonHidden`
+- `reelsHidden`
+- `exploreHidden`
+- `debugModeEnabled`
 
-## 🆕 New Features in v3.0
+Debug fast-access local key:
 
-## 🆕 New Features in v3.1
+- `nmr_debug`
 
-### Debug Toggle Button
-The popup's debug button now supports a dedicated on/off toggle which persists state and provides immediate localStorage access for content scripts. Use this to enable verbose logging during development and testing.
+## Development Workflow
 
-### Docs & Assets Consolidation
-Documentation files and icon assets were consolidated under the `Docs/` and `Assets/` folders respectively to simplify packaging and contributor navigation.
+1. Create a branch.
+2. Make focused changes.
+3. Reload the extension in `about:debugging` after each change.
+4. Test both desktop and mobile Instagram layouts.
+5. Verify state persistence after browser restart.
+6. Update docs in `README.md` and `Docs/` when behavior changes.
 
+## Manual Test Checklist
 
-### Threads Button Hiding
-The extension now includes functionality to hide Instagram's Threads button:
+- Popup opens and localizes text correctly.
+- Main toggle hides/shows targeted content.
+- Reels tag toggle works independently.
+- Explore tag toggle works independently.
+- Threads toggle hides/shows Threads entry.
+- Grayscale toggle applies and removes page filter.
+- Direct `/reels/` and `/explore/` routes show block page when enabled.
+- Settings persist after reopening popup/browser.
+- Debug toggle updates logs and propagates to open Instagram tabs.
+- No uncaught errors in popup/background/content consoles.
 
-```javascript
-// In content.js - Threads button selectors
-const THREADS_SELECTORS = [
-    'a[href*="threads.net"]',
-    'a[href*="threads.com"]',
-    'div[role="button"][aria-label*="Threads"]',
-    // ... more selectors
-];
+## Debugging
 
-// Toggle threads button visibility
-function handleThreadsButton() {
-    if (state.threadsHidden) {
-        applyStyles(SELECTORS.THREADS.BOTTOM_LEFT, 'none');
-    }
-}
-```
+### Where to inspect
 
-### Debug Mode
-A new debug mode system for development and troubleshooting:
+- Popup: inspect popup window from extension debugging tools.
+- Content script: Instagram tab devtools console.
+- Background script: extension background page/service worker console.
 
-```javascript
-// Debug mode state management
-function loadDebugFlag() {
-    try {
-        const stored = localStorage.getItem('nmr_debug');
-        if (stored === 'true') DEBUG = true;
-        if (stored === 'false') DEBUG = false;
-    } catch (e) {}
-}
+### Common issues
 
-// Enhanced logging
-function log(...args) { 
-    if (DEBUG) console.log('NoMoreReels Content:', ...args); 
-}
-```
+- UI changed on Instagram: selectors in `content.js` need updates.
+- State not reflected in tabs: check message flow and `tabs.query` host match.
+- Storage mismatch: verify sync fallback to local in `background.js` and `popup.js`.
 
-### Interactive UI Elements
-New interactive elements in the popup interface:
+## Internationalization
 
-```javascript
-// Interactive tag handling
-handleTagClick(type) {
-    const tag = this.elements[`${type}Tag`];
-    if (tag) {
-        tag.classList.toggle('active');
-        this.showMessage(`${type}TagClicked`);
-    }
-}
-```
+- Locale files are in `_locales/<lang>/messages.json`.
+- `manifest.json` uses `default_locale: "en"`.
+- Popup and blocked-page text use `browser.i18n.getMessage`.
 
-### Enhanced State Management
-Improved state synchronization across components:
+When adding a message key, add it to all supported locale files.
 
-```javascript
-// Enhanced state object
-this.currentState = {
-    mainEnabled: CONFIG.DEFAULT_ENABLED,
-    grayscaleEnabled: CONFIG.DEFAULT_GRAYSCALE,
-    threadsHidden: CONFIG.DEFAULT_THREADS_HIDDEN,  // NEW
-    reelsHidden: CONFIG.DEFAULT_REELS_HIDDEN,
-    exploreHidden: CONFIG.DEFAULT_EXPLORE_HIDDEN
-};
-```
+## Packaging Notes
 
-## 🔍 Debugging Guide
+- Ensure `manifest.json`, scripts, popup, locales, and icons are included.
+- Validate manifest JSON before release.
+- Keep version in `manifest.json` aligned with release notes in `Docs/CHANGELOG.md`.
 
-### Using Debug Mode
-1. **Enable Debug Mode**: Click the debug toggle button in the popup
-2. **Check Console**: Open browser developer tools and check console logs
-3. **Monitor Storage**: Check localStorage for debug state
-4. **Test Features**: Debug mode provides enhanced logging for all operations
+## Related Docs
 
-### Common Debug Scenarios
-- **Content not hiding**: Check selector targeting and debug logs
-- **State not persisting**: Verify storage operations and fallback mechanisms
-- **UI not updating**: Check popup-background communication
-- **Performance issues**: Monitor MutationObserver and DOM operations
-
-### Debug Tools
-- **Console Logging**: Enhanced logging when debug mode is enabled
-- **Storage Inspection**: Check browser storage for state consistency
-- **Network Monitoring**: Verify no unnecessary network requests
-- **Performance Profiling**: Monitor extension impact on page performance
-
-## 📚 Resources
-
-### Official Documentation
-- [Firefox Extension Development](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
-- [Manifest V3 Documentation](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/manifest_version)
-- [Content Scripts Guide](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)
-
-### Tools
-- [Firefox Add-on Debugger](https://extensionworkshop.com/documentation/develop/debugging/)
-- [WebExtensions API Reference](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API)
-
-### Best Practices
-- [Extension Security Best Practices](https://extensionworkshop.com/documentation/develop/build-a-secure-extension/)
-- [Performance Best Practices](https://extensionworkshop.com/documentation/develop/performance-best-practices/)
-
-## 🤝 Contributing
-
-**Important Note**: This project is licensed under CC BY-NC-ND 4.0, which means:
-- You can share and use the code for non-commercial purposes
-- You must provide attribution
-- You cannot create derivative works (modifications) for distribution
-- You cannot use it for commercial purposes
-
-### Before Contributing
-1. Check existing issues and pull requests
-2. Discuss major changes in an issue first
-3. Follow the coding standards above
-4. Test thoroughly before submitting
-5. Understand the license restrictions
-
-### Pull Request Process
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Update documentation
-6. Submit a pull request with detailed description
-
-### Code Review
-All contributions will be reviewed for:
-- Code quality and standards
-- Functionality and testing
-- Documentation completeness
-- Security considerations
-- License compliance
-
----
-
-**Note**: This guide is a living document. Please update it when making significant changes to the development process or architecture. 
+- Manifest reference: `Docs/MANIFEST_DOCUMENTATION.md`
+- Changelog: `Docs/CHANGELOG.md`
+- License summary: `Docs/LICENSE_SUMMARY.md`

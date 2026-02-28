@@ -1,30 +1,35 @@
 # License Summary
 
-## Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+## CC BY-NC-ND 4.0
 
-### ✅ What You CAN Do:
-- **Share**: Copy and redistribute the material in any medium or format
-- **Attribution**: Give appropriate credit, provide a link to the license, and indicate if changes were made
+This repository is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license.
 
-### ❌ What You CANNOT Do:
-- **Commercial Use**: Use the material for commercial purposes
-- **Derivatives**: Remix, transform, or build upon the material and distribute the modified material
+## You May
 
-### 📋 Attribution Requirements:
-When sharing this work, you must:
-1. Give appropriate credit to the original author
-2. Provide a link to the license: https://creativecommons.org/licenses/by-nc-nd/4.0/
-3. Indicate if any changes were made (though you cannot distribute modifications)
+- Share the unmodified material.
+- Redistribute it in any medium.
+- Use it for non-commercial purposes.
 
-### 🔗 Full License:
-- **Online**: https://creativecommons.org/licenses/by-nc-nd/4.0/
-- **Local**: See [LICENSE](LICENSE) file in this repository
+## You Must
 
-### 📞 Questions?
-For questions about this license or the project, please contact the developer:
-- **GitHub**: [@isotjs](https://github.com/isotjs)
-- **Project**: [No More Reels Extension](https://github.com/isotjs/no-more-reels)
+- Give appropriate attribution.
+- Provide a link to the license.
+- Indicate if changes were made (where applicable).
 
----
+## You May Not
 
-**Note**: This is a summary only. The full license terms in the [LICENSE](LICENSE) file take precedence. 
+- Use the material for commercial purposes.
+- Distribute modified versions (derivative works).
+
+## Practical Note for Contributors
+
+Contributions submitted to this repository are reviewed and merged by the maintainer as part of the official upstream project. If you plan to redistribute your own modified fork, review CC BY-NC-ND terms carefully.
+
+## Official License Text
+
+- Local file: [`../LICENSE`](../LICENSE)
+- Official URL: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+## Disclaimer
+
+This summary is informational only. The full license text governs.
