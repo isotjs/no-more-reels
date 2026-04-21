@@ -235,7 +235,11 @@
             this.state = newState;
             if (typeof newState.debugEnabled !== 'undefined') {
                 DEBUG = newState.debugEnabled === true;
-                try { localStorage.setItem('nmr_debug', DEBUG ? 'true' : 'false'); } catch (e) {}
+                try {
+                    localStorage.setItem('nmr_debug', DEBUG ? 'true' : 'false');
+                } catch (e) {
+                    logError('Failed to persist debug flag to localStorage:', e);
+                }
                 log('Debug mode set from state:', DEBUG);
             }
             this.runAllChecks();
