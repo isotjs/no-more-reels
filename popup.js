@@ -265,8 +265,14 @@ class PopupState {
         
         if (this.currentState.debugEnabled) {
             this.elements.debugToggle.classList.add('active');
+            this.elements.debugToggle.setAttribute('aria-pressed', 'true');
+            this.elements.debugToggle.setAttribute('title', 'Dev Tools: On');
+            this.elements.debugToggle.setAttribute('aria-label', 'Dev Tools: On');
         } else {
             this.elements.debugToggle.classList.remove('active');
+            this.elements.debugToggle.setAttribute('aria-pressed', 'false');
+            this.elements.debugToggle.setAttribute('title', 'Dev Tools: Off');
+            this.elements.debugToggle.setAttribute('aria-label', 'Dev Tools: Off');
         }
     }
 

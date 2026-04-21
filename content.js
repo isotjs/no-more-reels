@@ -233,6 +233,11 @@
          */
         setState(newState) {
             this.state = newState;
+            if (typeof newState.debugEnabled !== 'undefined') {
+                DEBUG = newState.debugEnabled === true;
+                try { localStorage.setItem('nmr_debug', DEBUG ? 'true' : 'false'); } catch (e) {}
+                log('Debug mode set from state:', DEBUG);
+            }
             this.runAllChecks();
         }
 
